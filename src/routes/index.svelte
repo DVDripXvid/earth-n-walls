@@ -1,7 +1,7 @@
 <script>
     import Fa from "svelte-fa";
     import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-    import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+    import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 </script>
 
 <svelte:head>
@@ -20,6 +20,10 @@
         <p>
             <Fa icon={faEnvelope} size="2x" color="#304050" />
             <a href="mailto:earthandwalls@gmail.com">earthandwalls@gmail.com</a>
+        </p>
+        <p>
+            <Fa icon={faPhone} size="2x" color="#304050" />
+            <a href="tel:+36703077997">+36 70 307 7997</a>
         </p>
     </div>
 </section>
@@ -56,7 +60,7 @@
     a {
         color: #304050;
         text-decoration: none;
-        font-size: 2rem;
+        font-size: clamp(1rem, 2.5vw, 2rem);
     }
     a:hover {
         text-decoration: underline;
