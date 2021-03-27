@@ -19,7 +19,7 @@
         </p>
         <p>
             <Fa icon={faEnvelope} size="2x" color="#304050" />
-            <a href="mailto:earthandwalls@gmail.com">earthandwalls@gmail.com</a>
+            <a href="mailto:info@earthandwalls.com">info@earthandwalls.com</a>
         </p>
         <p>
             <Fa icon={faPhone} size="2x" color="#304050" />
@@ -31,7 +31,7 @@
 <style>
     section {
         display: flex;
-        background-image: url("/images/bg_image_v1.jpg");
+        background-image: url("/images/bg.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         height: 100%;
