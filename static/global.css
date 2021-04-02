@@ -1,7 +1,10 @@
 :root {
     --primary-color: #304050;
+    --menu-item-color: #fff;
+    --hovered-color: #3e5266;
 }
 
 body {
     font-family: Roboto;
+    margin: 0px;
 }
