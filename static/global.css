@@ -1,10 +1,23 @@
 :root {
     --primary-color: #304050;
     --menu-item-color: #fff;
-    --hovered-color: #3e5266;
+    --hovered-color: #697785;
+    --light-text-color: #fff;
+    --slider-background: rgba(0, 16, 32, 0.6);
+
+    --appbar-height: 64px;
 }
 
 body {
     font-family: Roboto;
     margin: 0px;
+    min-width: 300px;
+}
+
+.section-title {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 2rem;
+    margin: 3rem 0;
 }

@@ -2,6 +2,10 @@
     import { t } from "../translations/translation";
 </script>
 
+<svelte:head>
+    <title>{t.page.introduction}{t.fix.title}</title>
+</svelte:head>
+
 <section class="container">
     <div class="profile">
         <img src="images/headshot.png" alt="profil" />
@@ -31,5 +35,18 @@
     }
     .introtext {
         padding: 3vw;
+    }
+
+    @media screen and (max-width: 900px) {
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1vh;
+        }
+        .name {
+            font-size: 1.1rem;
+        }
     }
 </style>
