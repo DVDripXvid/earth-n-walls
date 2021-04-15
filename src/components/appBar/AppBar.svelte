@@ -7,7 +7,7 @@
 
     let isDropdownOpen = false;
 
-    let y;
+    let scrollY;
 
     let routes = [
         {
@@ -33,9 +33,9 @@
     ];
 </script>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY />
 
-<div class="navbar" style="background-color: rgba(48, 64, 80, {y / 100})">
+<div class="navbar" style="background-color: rgba(48, 64, 80, {scrollY / 100})">
     <a href="/">
         <img
             id="logo"
@@ -61,7 +61,7 @@
 </div>
 
 <div class="slider-wrapper">
-    <div class="slider" style="transform: translateY({y * 0.4}px)">
+    <div class="slider" style="transform: translateY({scrollY * 0.4}px)">
         <p>{t.slider.line1}</p>
         <p>{t.slider.line2}</p>
     </div>
@@ -146,7 +146,6 @@
         /* -------NAVBAR------- */
         .navbar {
             background-color: var(--primary-color) !important;
-            /* van jobb mód? */
         }
         .navbar_menu-container {
             display: none;

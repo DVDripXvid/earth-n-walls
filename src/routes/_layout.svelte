@@ -1,10 +1,7 @@
 <script>
     import AppBar from "../components/appBar/AppBar.svelte";
     import { t } from "../translations/translation";
-    let y;
 </script>
-
-<svelte:window bind:scrollY={y} />
 
 <nav>
     <AppBar />
@@ -12,7 +9,7 @@
 
 <main>
     <div class="gradient" />
-    <img src="images/boritokep.jpg" alt="borítókép" />
+    <img src="images/coverimage.jpg" alt="cover" />
     <slot />
 </main>
 
@@ -46,6 +43,8 @@
     }
 
     @media screen and (max-width: 900px) {
+        /* ezeknél a 900px lehetne változó */
+
         .gradient {
             display: none;
         }
