@@ -1,27 +1,24 @@
 <script>
-    // import Fa from "svelte-fa";
-    // import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-    // import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
     import { t } from "../translations/translation";
-    import Introduction from "./Introduction.svelte";
+    import IndexAbout from "../components/index/IndexAbout.svelte";
+    import IndexServices from "../components/index/IndexServices.svelte";
+    import IndexReferences from "../components/index/IndexReferences.svelte";
 </script>
 
 <svelte:head>
-    <title>{t.page.home} - Earth & Walls</title>
+    <title>{t.page.home}{t.fix.title}</title>
 </svelte:head>
 
-<br /><br /><br /><br /><br /><br /><br />
+<section>
+    <IndexAbout />
+    <IndexServices />
+    <IndexReferences />
+</section>
 
-<div>content content content</div>
-
-<br /><br /><br /><br /><br /><br /><br />
-
-<div>content content content</div>
-
-<br /><br /><br /><br /><br /><br /><br />
-
-<div>content content content</div>
-
-<br /><br /><br /><br /><br /><br /><br />
-
-<div>content content content</div>
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        margin: 2vw 20vw;
+    }
+</style>
