@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import AppBar from "../components/appBar/AppBar.svelte";
     import { t } from "../translations/translation";
 </script>

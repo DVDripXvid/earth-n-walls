@@ -4,20 +4,15 @@
     --hovered-color: #697785;
     --light-text-color: #fff;
     --slider-background: rgba(0, 16, 32, 0.6);
+    --light-background: rgb(241, 241, 241);
 
     --appbar-height: 64px;
+    --slideshow-image-height-horizontal: 50vh;
+    --slideshow-image-height-vertical: 90vh;
 }
 
 body {
     font-family: Roboto;
     margin: 0px;
     min-width: 300px;
-}
-
-.section-title {
-    color: var(--primary-color);
-    text-transform: uppercase;
-    font-weight: 300;
-    font-size: 2rem;
-    margin: 3rem 0;
 }

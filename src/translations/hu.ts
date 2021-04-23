@@ -24,6 +24,10 @@ export const hu = {
         aboutText:
             "Lorem ipsum dolor sit amet cons ectetur adipis icing elit. Distinctio exercit ationem aperiam tempor ibus sapiente laborum quo aut dignis simos itaque voluptas praes entium, quos moles tias earum totam cum dolores ullam velit hic. Mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio exerci tationem aperiam temporibus sapiente laborum quo aut dignissimos itaque volu ptas praese ntium, quos moles tias earum totam cum dolores ullam velit hic.",
         servicesTitle: "Szolgáltatásaink",
+        serviceName1: "Gipszkartonozás",
+        serviceDescription1:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio exercitationem aperiam temporibus sapiente laborum quo aut dignissimos itaque voluptas praesentium, quos molestias earum totam cum dolores ullam velit hic.",
+        referencesTitle: "Munkáink",
     },
 
     intro: {
