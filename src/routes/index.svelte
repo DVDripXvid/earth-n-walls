@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { t } from "../translations/translation";
     import IndexAbout from "../components/index/IndexAbout.svelte";
     import IndexServices from "../components/index/IndexServices.svelte";

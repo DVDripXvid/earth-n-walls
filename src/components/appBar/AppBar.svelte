@@ -1,15 +1,14 @@
-<script>
+<script lang="ts">
     import { t } from "../../translations/translation";
     import AppBarDropdown from "./AppBarDropdown.svelte";
     import Fa from "svelte-fa";
     import { faBars } from "@fortawesome/free-solid-svg-icons";
     import { fly } from "svelte/transition";
 
+    let scrollY;
     let isDropdownOpen = false;
 
-    let scrollY;
-
-    let routes = [
+    const routes = [
         {
             path: "/",
             name: t.page.home,

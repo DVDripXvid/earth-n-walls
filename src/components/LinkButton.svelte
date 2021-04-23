@@ -1,6 +1,6 @@
 <script lang="ts">
-    export let path;
-    export let text;
+    export let path: string;
+    export let text: string;
 </script>
 
 <a href={path} class="button">{text}</a>

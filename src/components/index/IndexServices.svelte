@@ -1,65 +1,92 @@
-<script>
-    import Button from "../../components/Button.svelte";
+<script lang="ts">
+    import LinkButton from "../LinkButton.svelte";
     import { t } from "../../translations/translation";
+    import { onMount } from "svelte";
+    import SectionTitle from "../SectionTitle.svelte";
 
-    let services = [
+    interface IService {
+        path: string;
+        name: string;
+        description: string;
+    }
+
+    const services: IService[] = [
         {
             path: "/services",
-            name: t.index.servicesName1,
-            description: t.index.servicesDescription1,
+            name: t.index.serviceName1,
+            description: t.index.serviceDescription1,
         },
         {
             path: "/services",
-            name: t.index.servicesName1,
-            description: t.index.servicesDescription1,
+            name: t.index.serviceName1,
+            description: t.index.serviceDescription1,
         },
         {
             path: "/services",
-            name: t.index.servicesName1,
-            description: t.index.servicesDescription1,
+            name: t.index.serviceName1,
+            description: t.index.serviceDescription1,
         },
         {
             path: "/services",
-            name: t.index.servicesName1,
-            description: t.index.servicesDescription1,
+            name: t.index.serviceName1,
+            description: t.index.serviceDescription1,
         },
         {
             path: "/services",
-            name: t.index.servicesName1,
-            description: t.index.servicesDescription1,
+            name: t.index.serviceName1,
+            description: t.index.serviceDescription1,
         },
     ];
 
-    // let largeScreen;
-    // onMount(() => {
-    //     largeScreen = window.matchMedia("(min-width: 900px)");
-    // });
+    let largeScreen: boolean;
+    onMount(() => {
+        const mediaQuery = window.matchMedia("(min-width: 900px)");
+        largeScreen = mediaQuery.matches;
+        mediaQuery.addEventListener("change", function (ev) {
+            largeScreen = ev.matches;
+        });
+    });
+
+    let selectedService = services[0];
 </script>
 
-<div class="section-title">{t.index.servicesTitle}</div>
+<SectionTitle text={t.index.servicesTitle} />
 <article class="services-content">
     <div class="services-content_categories">
         {#each services as service}
             <a
                 href="/"
+                class:selected={selectedService === service}
                 on:click={() => {
-                    service.selected = !service.selected;
+                    selectedService =
+                        selectedService === service && !largeScreen
+                            ? null
+                            : service;
                 }}
             >
                 {service.name}
             </a>
 
-            {#if service.selected}
+            {#if service === selectedService && !largeScreen}
                 <div class="services-content_description">
                     <p>{service.name}</p>
                     <p>
                         {service.description}
                     </p>
-                    <Button path={service.path} text={t.button.more} />
+                    <LinkButton path={service.path} text={t.button.more} />
                 </div>
             {/if}
         {/each}
     </div>
+    {#if selectedService && largeScreen}
+        <div class="services-content_description">
+            <p>{selectedService.name}</p>
+            <p>
+                {selectedService.description}
+            </p>
+            <LinkButton path={selectedService.path} text={t.button.more} />
+        </div>
+    {/if}
 </article>
 
 <style>
@@ -92,9 +119,12 @@
         background-color: var(--hovered-color);
         color: var(--light-text-color);
     }
-    .services-content_categories a:focus {
+    .selected {
         background-color: var(--primary-color);
-        color: white;
+        color: var(--light-text-color) !important;
+    }
+    .selected:hover {
+        background-color: var(--primary-color) !important;
     }
     .services-content_description {
         width: 60%;

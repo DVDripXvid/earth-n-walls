@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
     import { t } from "../../translations/translation";
+    import SectionTitle from "../SectionTitle.svelte";
 
-    let images = [
+    const images = [
         {
             path: "/references",
             src: "images/reference1.jpg",
@@ -35,7 +36,7 @@
     ];
 </script>
 
-<div class="section-title">{t.index.referencesTitle}</div>
+<SectionTitle text={t.index.referencesTitle} />
 <article class="references-content">
     {#each images as image}
         <a href={image.path}> <img src={image.src} alt={image.alt} /> </a>

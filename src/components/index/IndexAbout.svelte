@@ -1,15 +1,16 @@
-<script>
-    import Button from "../../components/Button.svelte";
+<script lang="ts">
+    import LinkButton from "../LinkButton.svelte";
     import { t } from "../../translations/translation";
+    import SectionTitle from "../SectionTitle.svelte";
 </script>
 
-<div class="section-title">{t.index.aboutTitle}</div>
+<SectionTitle text={t.index.aboutTitle} />
 <article class="about-content">
     <div class="about-content_text">
         <div>
             {t.index.aboutText}
         </div>
-        <Button path="/introduction" text={t.button.more} />
+        <LinkButton path="/introduction" text={t.button.more} />
     </div>
     <img src="images/video.jpg" alt="introduction" />
 </article>
