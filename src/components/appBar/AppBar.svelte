@@ -4,6 +4,7 @@
     import Fa from "svelte-fa";
     import { faBars } from "@fortawesome/free-solid-svg-icons";
     import { fly } from "svelte/transition";
+    import HighlightedLink from "../HighlightedLink.svelte";
 
     let scrollY;
     let isDropdownOpen = false;
@@ -46,7 +47,7 @@
     </a>
     <div class="navbar_menu-container">
         {#each routes as route}
-            <a href={route.path}>{route.name}</a>
+            <HighlightedLink text={route.name} link={route.path} />
         {/each}
     </div>
     <div
@@ -93,18 +94,7 @@
         justify-content: flex-end;
         margin: 0 5vw;
     }
-    .navbar_menu-container a {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: var(--menu-item-color);
-        padding: 0 1vw;
-    }
-    .navbar_menu-container a:hover {
-        text-decoration: underline;
-    }
+
     .navbar_menu-icon {
         display: none;
     }
