@@ -54,8 +54,9 @@
 <article class="services-content">
     <div class="services-content_categories">
         {#each services as service}
-            <a
-                href="/"
+            <div
+                id="categories-list"
+                role="button"
                 class:selected={selectedService === service}
                 on:click={() => {
                     selectedService =
@@ -65,7 +66,7 @@
                 }}
             >
                 {service.name}
-            </a>
+            </div>
 
             {#if service === selectedService && !largeScreen}
                 <div class="services-content_description">
@@ -103,19 +104,19 @@
         justify-content: center;
         align-items: center;
     }
-    .services-content_categories a {
+    #categories-list {
         height: 100%;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        text-decoration: none;
         text-transform: uppercase;
         color: var(--primary-color);
         padding-left: 1rem;
         box-sizing: border-box;
+        cursor: pointer;
     }
-    .services-content_categories a:hover {
+    #categories-list:hover {
         background-color: var(--hovered-color);
         color: var(--light-text-color);
     }
@@ -145,13 +146,14 @@
         .services-content_categories {
             width: 100%;
         }
-        .services-content_categories a {
+        #categories-list {
             padding: 1rem;
             justify-content: center;
         }
         .services-content_description {
             width: 100%;
             box-sizing: border-box;
+            flex-direction: column;
         }
     }
 </style>
