@@ -3,7 +3,7 @@
     import { t } from "../../translations/translation";
     import { onMount } from "svelte";
     import SectionTitle from "../SectionTitle.svelte";
-    import { services } from "../../components/services";
+    import { services } from "../../data/services";
 
     let largeScreen: boolean;
     onMount(() => {

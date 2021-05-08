@@ -9,7 +9,7 @@
         color: var(--primary-color);
         text-transform: uppercase;
         font-weight: 300;
-        font-size: 2rem;
+        font-size: clamp(1.3rem, 4vw, 2rem);
         margin: 3rem 0;
     }
 </style>

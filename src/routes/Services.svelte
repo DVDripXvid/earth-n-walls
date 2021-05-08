@@ -1,6 +1,6 @@
 <script lang="ts">
     import { t } from "../translations/translation";
-    import { services } from "../components/services";
+    import { services } from "../data/services";
 </script>
 
 <svelte:head>
@@ -23,7 +23,7 @@
     section {
         display: flex;
         flex-direction: column;
-        margin: 2vw 20vw;
+        margin: var(--main-margin);
     }
 
     .service {
