@@ -1,31 +1,28 @@
 <script lang="ts">
     import { t } from "../translations/translation";
     import { services } from "../data/services";
+    import Page from "../components/Page.svelte";
 </script>
 
 <svelte:head>
     <title>{t.page.services}{t.fix.title}</title>
 </svelte:head>
 
-<section>
-    {#each services as service}
-        <div class="service" id={service.id}>
-            <img src={service.image} alt="" />
-            <div class="service_texts">
-                <p>{service.title}</p>
-                <p>{service.text}</p>
+<Page>
+    <section>
+        {#each services as service}
+            <div class="service" id={service.id}>
+                <img src={service.image} alt="" />
+                <div class="service_texts">
+                    <p>{service.title}</p>
+                    <p>{service.text}</p>
+                </div>
             </div>
-        </div>
-    {/each}
-</section>
+        {/each}
+    </section>
+</Page>
 
 <style>
-    section {
-        display: flex;
-        flex-direction: column;
-        margin: var(--main-margin);
-    }
-
     .service {
         display: flex;
         padding-top: calc(var(--appbar-height) + 1rem);

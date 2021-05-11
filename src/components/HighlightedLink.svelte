@@ -29,4 +29,14 @@
     .selected {
         text-decoration: underline;
     }
+
+    @media screen and (max-width: 900px) {
+        a:hover {
+            text-decoration: none;
+        }
+        .selected {
+            text-decoration: none;
+            background-color: var(--hovered-color);
+        }
+    }
 </style>

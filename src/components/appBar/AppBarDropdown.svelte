@@ -1,23 +1,29 @@
 <script lang="ts">
     import type { Link } from "../../types";
+    import HighlightedLink from "../HighlightedLink.svelte";
     export let items: Link[] = [];
 </script>
 
 <div class="menu-container">
     {#each items as item}
-        <a href={item.path} class="menu-item">{item.name}</a>
+        <div class="menu-item">
+            <HighlightedLink text={item.name} link={item.path} />
+        </div>
     {/each}
 </div>
 
 <style>
     .menu-container {
         position: fixed;
-        width: 100%;
+        width: 50%;
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        right: 0px;
+        text-align: center;
+        background-color: var(--primary-color);
         margin-top: var(--appbar-height);
         z-index: 1;
+        opacity: 90%;
     }
 
     .menu-item:hover {
@@ -25,21 +31,19 @@
     }
 
     .menu-item {
-        width: 50%;
+        width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         text-transform: uppercase;
         text-decoration: none;
-        background-color: var(--primary-color);
         color: var(--menu-item-color);
         padding: 2vw 3vw;
-        opacity: 90%;
     }
 
     @media screen and (orientation: portrait) {
-        .menu-item {
+        .menu-container {
             width: 100%;
         }
     }

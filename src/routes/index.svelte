@@ -3,22 +3,15 @@
     import IndexAbout from "../components/index/IndexAbout.svelte";
     import IndexServices from "../components/index/IndexServices.svelte";
     import IndexReferences from "../components/index/IndexReferences.svelte";
+    import Page from "../components/Page.svelte";
 </script>
 
 <svelte:head>
     <title>{t.page.home}{t.fix.title}</title>
 </svelte:head>
 
-<section>
+<Page>
     <IndexAbout />
     <IndexServices />
     <IndexReferences />
-</section>
-
-<style>
-    section {
-        display: flex;
-        flex-direction: column;
-        margin: 2vw 20vw;
-    }
-</style>
+</Page>

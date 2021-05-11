@@ -7,6 +7,7 @@
     --light-background: rgb(241, 241, 241);
 
     --appbar-height: 64px;
+    --main-margin: 2vw 20vw;
     --slideshow-image-height-horizontal: 50vh;
     --slideshow-image-height-vertical: 90vh;
 }

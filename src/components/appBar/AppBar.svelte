@@ -3,7 +3,6 @@
     import AppBarDropdown from "./AppBarDropdown.svelte";
     import Fa from "svelte-fa";
     import { faBars } from "@fortawesome/free-solid-svg-icons";
-    import { fly } from "svelte/transition";
     import HighlightedLink from "../HighlightedLink.svelte";
 
     let scrollY;
@@ -68,7 +67,12 @@
 </div>
 
 {#if isDropdownOpen}
-    <div class="dropdown" transition:fly={{ y: -200, duration: 200 }}>
+    <div
+        class="dropdown"
+        on:click={() => {
+            isDropdownOpen = !isDropdownOpen;
+        }}
+    >
         <AppBarDropdown items={routes} />
     </div>
 {/if}
@@ -78,6 +82,7 @@
     .navbar {
         position: fixed;
         width: 100%;
+        height: var(--appbar-height);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -103,6 +108,7 @@
     .slider-wrapper {
         display: flex;
         justify-content: center;
+        user-select: none;
     }
     .slider {
         position: absolute;
