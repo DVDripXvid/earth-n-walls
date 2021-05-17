@@ -1,13 +1,13 @@
 <script lang="ts">
     import type { Link } from "../../types";
-    import HighlightedLink from "../HighlightedLink.svelte";
     export let items: Link[] = [];
+    export let activePath: string;
 </script>
 
 <div class="menu-container">
     {#each items as item}
-        <div class="menu-item">
-            <HighlightedLink text={item.name} link={item.path} />
+        <div class="menu-item" class:selected={activePath === item.path}>
+            <a href={item.path}>{item.name}</a>
         </div>
     {/each}
 </div>
@@ -26,7 +26,8 @@
         opacity: 90%;
     }
 
-    .menu-item:hover {
+    .menu-item:hover,
+    .selected {
         background-color: var(--hovered-color);
     }
 

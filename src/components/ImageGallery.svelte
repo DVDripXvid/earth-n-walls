@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { IGalleryImage } from "../models/gallery";
+    import type { IGalleryImage } from "../types";
     export let images: IGalleryImage[];
 </script>
 
@@ -13,22 +13,25 @@
 
 <style>
     .gallery {
+        height: var(--slideshow-image-height-horizontal);
         display: flex;
     }
     .gallery a {
+        height: 100%;
         flex: 1;
         overflow: hidden;
         border: 1px solid white;
         transition: 0.8s cubic-bezier(0.37, 0.05, 0.27, 0.99);
     }
     .gallery img {
-        height: var(--slideshow-image-height-horizontal);
         width: 100%;
+        height: 100%;
         object-fit: cover;
         filter: grayscale(100%);
     }
 
-    .gallery a:hover {
+    .gallery a:hover,
+    .gallery a:active {
         flex: 3;
         transition: 0.8s cubic-bezier(0.37, 0.05, 0.27, 0.99);
     }
@@ -43,25 +46,7 @@
             height: var(--slideshow-image-height-vertical);
         }
         .gallery a {
-            height: 15vh;
             width: 100%;
-            overflow: hidden;
-            border: 1px solid white;
-            transition: 0.8s cubic-bezier(0.37, 0.05, 0.27, 0.99);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .gallery a:hover {
-            height: 50vh;
-            width: 100%;
-            transition: 0.8s cubic-bezier(0.37, 0.05, 0.27, 0.99);
-        }
-    }
-    @media screen and (orientation: portrait) {
-        .gallery a:hover {
-            height: 30vh;
         }
     }
 </style>

@@ -5,6 +5,10 @@
     import { faBars } from "@fortawesome/free-solid-svg-icons";
     import HighlightedLink from "../HighlightedLink.svelte";
 
+    import { stores } from "@sapper/app";
+
+    const { page } = stores();
+
     let scrollY;
     let isDropdownOpen = false;
 
@@ -30,6 +34,8 @@
             name: t.page.contact,
         },
     ];
+
+    $: activeRoute = routes.find((route) => $page.path === route.path);
 </script>
 
 <svelte:window bind:scrollY />
@@ -73,7 +79,7 @@
             isDropdownOpen = !isDropdownOpen;
         }}
     >
-        <AppBarDropdown items={routes} />
+        <AppBarDropdown items={routes} activePath={activeRoute.path} />
     </div>
 {/if}
 
