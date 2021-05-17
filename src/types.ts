@@ -1,4 +1,4 @@
-export interface Link {
+export interface ILink {
     path: string;
     name: string;
 }

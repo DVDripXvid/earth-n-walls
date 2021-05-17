@@ -1,10 +1,12 @@
 <script lang="ts">
-    import type { Link } from "../../types";
-    export let items: Link[] = [];
+    import { isSmall } from "../../stores/mediaQuery";
+    import type { ILink } from "../../types";
+
+    export let items: ILink[] = [];
     export let activePath: string;
 </script>
 
-<div class="menu-container">
+<div class="menu-container" class:menu-container-half-width={$isSmall}>
     {#each items as item}
         <div class="menu-item" class:selected={activePath === item.path}>
             <a href={item.path}>{item.name}</a>
@@ -15,7 +17,7 @@
 <style>
     .menu-container {
         position: fixed;
-        width: 50%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         right: 0px;
@@ -24,6 +26,10 @@
         margin-top: var(--appbar-height);
         z-index: 1;
         opacity: 90%;
+    }
+
+    .menu-container-half-width {
+        width: 50%;
     }
 
     .menu-item:hover,
@@ -41,11 +47,5 @@
         text-decoration: none;
         color: var(--menu-item-color);
         padding: 2vw 3vw;
-    }
-
-    @media screen and (orientation: portrait) {
-        .menu-container {
-            width: 100%;
-        }
     }
 </style>
