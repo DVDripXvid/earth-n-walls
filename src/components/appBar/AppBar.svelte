@@ -1,14 +1,14 @@
 <script lang="ts">
-    import { t } from "../../translations/translation";
-    import AppBarDropdown from "./AppBarDropdown.svelte";
-    import Fa from "svelte-fa";
     import { faBars } from "@fortawesome/free-solid-svg-icons";
     import { stores } from "@sapper/app";
+    import Fa from "svelte-fa";
     import { isLarge, isMedium } from "../../stores/mediaQuery";
+    import { t } from "../../translations/translation";
+    import AppBarDropdown from "./AppBarDropdown.svelte";
 
     const { page } = stores();
 
-    let scrollY;
+    let scrollY: number;
     let isDropdownOpen = false;
 
     const routes = [
@@ -34,7 +34,8 @@
         },
     ];
 
-    $: activeRoute = routes.find((route) => $page.path === route.path);
+    $: activeRoute =
+        routes.find((route) => $page?.path === route.path) || routes[0];
 </script>
 
 <svelte:window bind:scrollY />

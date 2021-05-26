@@ -1,19 +1,10 @@
 <script lang="ts">
-    import LinkButton from "../LinkButton.svelte";
-    import { t } from "../../translations/translation";
-    import { onMount } from "svelte";
-    import SectionTitle from "../SectionTitle.svelte";
-    import { services } from "../../data/services";
     import { slide } from "svelte/transition";
-
-    let largeScreen: boolean;
-    onMount(() => {
-        const mediaQuery = window.matchMedia("(min-width: 900px)");
-        largeScreen = mediaQuery.matches;
-        mediaQuery.addEventListener("change", function (ev) {
-            largeScreen = ev.matches;
-        });
-    });
+    import { services } from "../../data/services";
+    import { isLarge } from "../../stores/mediaQuery";
+    import { t } from "../../translations/translation";
+    import LinkButton from "../LinkButton.svelte";
+    import SectionTitle from "../SectionTitle.svelte";
 
     let selectedService = services[0];
 </script>
@@ -28,7 +19,7 @@
                 class:selected={selectedService === service}
                 on:click={() => {
                     selectedService =
-                        selectedService === service && !largeScreen
+                        selectedService === service && !$isLarge
                             ? null
                             : service;
                 }}
@@ -36,7 +27,7 @@
                 {service.title}
             </div>
 
-            {#if service === selectedService && !largeScreen}
+            {#if service === selectedService && !$isLarge}
                 <div
                     class="services-content_description"
                     transition:slide={{ duration: 500 }}
@@ -53,7 +44,7 @@
             {/if}
         {/each}
     </div>
-    {#if selectedService && largeScreen}
+    {#if selectedService && $isLarge}
         <div class="services-content_description">
             <p>{selectedService.title}</p>
             <p>

@@ -13,11 +13,12 @@ function createReadableForMinWidth(minWidth: number) {
 }
 
 function createMediaQueryListener(query: string, notify: (value: boolean) => void) {
-  if (window) {
-    const queryResult = window.matchMedia(query);
-    const listener = (ev: MediaQueryListEvent) => { notify(ev.matches) };
-    queryResult.addEventListener('change', listener);
-    notify(queryResult.matches);
-    return () => queryResult.removeEventListener('change', listener);
+  if (typeof window === "undefined") {
+    return;
   }
+  const queryResult = window.matchMedia(query);
+  const listener = (ev: MediaQueryListEvent) => { notify(ev.matches) };
+  queryResult.addEventListener('change', listener);
+  notify(queryResult.matches);
+  return () => queryResult.removeEventListener('change', listener);
 }
