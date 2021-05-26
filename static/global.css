@@ -13,7 +13,8 @@
 }
 
 body {
-    font-family: Roboto;
+    font-family: Roboto, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, Arial, sans-serif;
     margin: 0px;
     min-width: 300px;
 }

@@ -19,7 +19,6 @@
     .about-content {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
     }
     .about-content_text {
         margin-right: 5vw;

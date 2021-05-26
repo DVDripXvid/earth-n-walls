@@ -8,7 +8,7 @@
 
 <div class="menu-container" class:menu-container-half-width={$isSmall}>
     {#each items as item}
-        <div class="menu-item" class:selected={activePath === item.path}>
+        <div class:selected={activePath === item.path}>
             <a href={item.path}>{item.name}</a>
         </div>
     {/each}
@@ -32,12 +32,12 @@
         width: 50%;
     }
 
-    .menu-item:hover,
+    a:hover:hover,
     .selected {
         background-color: var(--hovered-color);
     }
 
-    .menu-item {
+    a {
         width: 100%;
         height: 100%;
         display: flex;

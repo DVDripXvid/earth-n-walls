@@ -4,6 +4,7 @@
     import { onMount } from "svelte";
     import SectionTitle from "../SectionTitle.svelte";
     import { services } from "../../data/services";
+    import { slide } from "svelte/transition";
 
     let largeScreen: boolean;
     onMount(() => {
@@ -36,7 +37,10 @@
             </div>
 
             {#if service === selectedService && !largeScreen}
-                <div class="services-content_description">
+                <div
+                    class="services-content_description"
+                    transition:slide={{ duration: 500 }}
+                >
                     <p>{service.title}</p>
                     <p>
                         {service.description}
