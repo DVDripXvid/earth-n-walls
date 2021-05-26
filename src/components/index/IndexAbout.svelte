@@ -19,10 +19,9 @@
     .about-content {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
     }
     .about-content_text {
-        margin-right: 6vw;
+        margin-right: 5vw;
     }
 
     img {
@@ -33,6 +32,10 @@
     @media screen and (max-width: 900px) {
         .about-content {
             flex-direction: column;
+        }
+
+        .about-content_text {
+            margin-right: 0vw;
         }
 
         img {

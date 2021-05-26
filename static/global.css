@@ -7,12 +7,18 @@
     --light-background: rgb(241, 241, 241);
 
     --appbar-height: 64px;
+    --main-margin: 2vw 20vw;
     --slideshow-image-height-horizontal: 50vh;
-    --slideshow-image-height-vertical: 90vh;
+    --slideshow-image-height-vertical: 40vh;
 }
 
 body {
-    font-family: Roboto;
+    font-family: Roboto, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, Arial, sans-serif;
     margin: 0px;
     min-width: 300px;
+}
+
+p {
+    margin-top: 0px;
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
     import AppBar from "../components/appBar/AppBar.svelte";
-    import { t } from "../translations/translation";
+    import Footer from "../components/Footer.svelte";
 </script>
 
 <nav>
@@ -13,7 +13,7 @@
     <slot />
 </main>
 
-<footer>{t.footer.text}</footer>
+<Footer />
 
 <style>
     img {
@@ -31,15 +31,6 @@
             rgba(0, 0, 0, 0),
             rgb(0, 0, 0, 0.7)
         );
-    }
-
-    footer {
-        height: 10vh;
-        text-align: center;
-        font-size: 1.2rem;
-        background-color: var(--primary-color);
-        color: var(--light-text-color);
-        padding: 1rem;
     }
 
     @media screen and (max-width: 900px) {

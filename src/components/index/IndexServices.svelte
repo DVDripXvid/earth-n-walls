@@ -3,40 +3,8 @@
     import { t } from "../../translations/translation";
     import { onMount } from "svelte";
     import SectionTitle from "../SectionTitle.svelte";
-
-    interface IService {
-        path: string;
-        name: string;
-        description: string;
-    }
-
-    const services: IService[] = [
-        {
-            path: "/services",
-            name: t.index.serviceName1,
-            description: t.index.serviceDescription1,
-        },
-        {
-            path: "/services",
-            name: t.index.serviceName1,
-            description: t.index.serviceDescription1,
-        },
-        {
-            path: "/services",
-            name: t.index.serviceName1,
-            description: t.index.serviceDescription1,
-        },
-        {
-            path: "/services",
-            name: t.index.serviceName1,
-            description: t.index.serviceDescription1,
-        },
-        {
-            path: "/services",
-            name: t.index.serviceName1,
-            description: t.index.serviceDescription1,
-        },
-    ];
+    import { services } from "../../data/services";
+    import { slide } from "svelte/transition";
 
     let largeScreen: boolean;
     onMount(() => {
@@ -65,27 +33,36 @@
                             : service;
                 }}
             >
-                {service.name}
+                {service.title}
             </div>
 
             {#if service === selectedService && !largeScreen}
-                <div class="services-content_description">
-                    <p>{service.name}</p>
+                <div
+                    class="services-content_description"
+                    transition:slide={{ duration: 500 }}
+                >
+                    <p>{service.title}</p>
                     <p>
                         {service.description}
                     </p>
-                    <LinkButton path={service.path} text={t.button.more} />
+                    <LinkButton
+                        path={service.path.concat("#" + selectedService.id)}
+                        text={t.button.more}
+                    />
                 </div>
             {/if}
         {/each}
     </div>
     {#if selectedService && largeScreen}
         <div class="services-content_description">
-            <p>{selectedService.name}</p>
+            <p>{selectedService.title}</p>
             <p>
                 {selectedService.description}
             </p>
-            <LinkButton path={selectedService.path} text={t.button.more} />
+            <LinkButton
+                path={selectedService.path.concat("#" + selectedService.id)}
+                text={t.button.more}
+            />
         </div>
     {/if}
 </article>
