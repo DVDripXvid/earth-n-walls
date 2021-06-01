@@ -7,9 +7,10 @@
     const images = references.map((reference) => ({
         src: reference.images[0],
         path: reference.path + "#" + reference.id,
-        alt: reference.id,
+        name: reference.title,
     }));
 </script>
 
 <SectionTitle text={t.index.referencesTitle} />
+
 <ImageGallery {images} />

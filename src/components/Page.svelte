@@ -9,12 +9,12 @@
     .page {
         display: flex;
         flex-direction: column;
-        margin: 4vw 20vw;
+        padding: 4vw 20vw;
     }
 
     @media screen and (max-width: 900px) {
         .page {
-            margin: 2vw 10vw;
+            padding: 2vw 10vw;
         }
     }
 </style>

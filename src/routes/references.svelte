@@ -17,7 +17,7 @@
                 <SectionTitle text={ref.title} />
                 <p class="reference_text">{ref.text}</p>
                 <ImageGallery
-                    images={ref.images.map((src) => ({ src, alt: ref.id }))}
+                    images={ref.images.map((src) => ({ src, name: ref.title }))}
                 />
             </div>
         {/each}
