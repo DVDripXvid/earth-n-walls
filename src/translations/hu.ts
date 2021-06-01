@@ -46,6 +46,10 @@ export const hu = {
         text1: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio exercitationem aperiam temporibus sapiente laborum quo aut dignissimos itaque voluptas praesentium, quos molestias earum totam cum dolores ullam velit hic. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio exercitationem aperiam temporibus sapiente laborum quo aut dignissimos itaque voluptas praesentium, quos molestias earum totam cum dolores ullam velit hic.",
     },
 
+    contact: {
+        title: "Elérhetőségeink",
+    },
+
     footer: {
         text: "kapcsolat stb",
     },

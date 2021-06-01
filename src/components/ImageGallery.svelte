@@ -5,9 +5,14 @@
 
 <article class="gallery">
     {#each images as image}
-        <a href={image.path}>
-            <img src={image.src} alt={image.alt} />
-        </a>
+        <div class="container">
+            <img src={image.src} alt={image.name} />
+            {#if image.path}
+                <div class="link">
+                    <a href={image.path}>{image.name}</a>
+                </div>
+            {/if}
+        </div>
     {/each}
 </article>
 
@@ -16,7 +21,8 @@
         height: var(--slideshow-image-height-horizontal);
         display: flex;
     }
-    .gallery a {
+    .container {
+        position: relative;
         height: 100%;
         flex: 1;
         overflow: hidden;
@@ -30,8 +36,8 @@
         filter: grayscale(100%);
     }
 
-    .gallery a:hover,
-    .gallery a:active {
+    .container:hover,
+    .container:active {
         flex: 3;
         transition: 0.8s cubic-bezier(0.37, 0.05, 0.27, 0.99);
     }
@@ -40,12 +46,34 @@
         transition: 0.8s;
     }
 
+    .link {
+        display: none;
+        position: absolute;
+        width: 100%;
+        justify-content: center;
+        bottom: 0;
+        background-color: black;
+        opacity: 70%;
+    }
+    .container:active .link,
+    .container:hover .link {
+        display: flex;
+    }
+
+    a {
+        color: var(--light-text-color);
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
     @media screen and (max-width: 900px) {
         .gallery {
             flex-direction: column;
             height: var(--slideshow-image-height-vertical);
         }
-        .gallery a {
+        .container {
             width: 100%;
         }
     }

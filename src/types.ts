@@ -6,5 +6,5 @@ export interface ILink {
 export interface IGalleryImage {
     src: string;
     path?: string;
-    alt: string;
+    name: string;
 }
