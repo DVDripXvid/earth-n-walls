@@ -1,7 +1,8 @@
 <script lang="ts">
+    import { isLarge } from "../stores/mediaQuery";
 </script>
 
-<div class="page">
+<div class="page" class:page--large={$isLarge}>
     <slot />
 </div>
 
@@ -9,12 +10,9 @@
     .page {
         display: flex;
         flex-direction: column;
-        padding: 4vw 20vw;
+        padding: 2vw 10vw;
     }
-
-    @media screen and (max-width: 900px) {
-        .page {
-            padding: 2vw 10vw;
-        }
+    .page--large {
+        padding: 1vw 20vw;
     }
 </style>

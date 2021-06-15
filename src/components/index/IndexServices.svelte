@@ -10,13 +10,17 @@
 </script>
 
 <SectionTitle text={t.index.servicesTitle} />
-<article class="services-content">
-    <div class="services-content_categories">
+<article class="services-content" class:services-content--large={$isLarge}>
+    <div
+        class="services-content_categories"
+        class:services-content_categories--large={$isLarge}
+    >
         {#each services as service}
             <div
-                id="categories-list"
+                class="categories-list"
                 role="button"
                 class:selected={selectedService === service}
+                class:categories-list--large={$isLarge}
                 on:click={() => {
                     selectedService =
                         selectedService === service && !$isLarge
@@ -30,6 +34,7 @@
             {#if service === selectedService && !$isLarge}
                 <div
                     class="services-content_description"
+                    class:services-content_description--large={$isLarge}
                     transition:slide={{ duration: 500 }}
                 >
                     <p>{service.title}</p>
@@ -63,28 +68,40 @@
         display: flex;
         background-color: var(--light-background);
         width: 100%;
+        height: 100%;
+        flex-direction: column;
+    }
+    .services-content--large {
+        flex-direction: row;
         height: 300px;
     }
     .services-content_categories {
-        width: 40%;
         display: flex;
+        width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    #categories-list {
+    .services-content_categories--large {
+        width: 40%;
+    }
+    .categories-list {
         height: 100%;
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        padding: 1rem;
+        justify-content: center;
         text-transform: uppercase;
         color: var(--primary-color);
-        padding-left: 1rem;
         box-sizing: border-box;
         cursor: pointer;
     }
-    #categories-list:hover {
+    .categories-list--large {
+        justify-content: flex-start;
+        padding-left: 1rem;
+    }
+    .categories-list:hover {
         background-color: var(--hovered-color);
         color: var(--light-text-color);
     }
@@ -96,32 +113,18 @@
         background-color: var(--primary-color) !important;
     }
     .services-content_description {
-        width: 60%;
+        width: 100%;
+        box-sizing: border-box;
         padding: 1rem;
     }
+    .services-content_description--large {
+        width: 60%;
+    }
+
     .services-content_description > :first-child {
         text-transform: uppercase;
         font-weight: bolder;
         color: var(--primary-color);
         overflow: hidden;
-    }
-
-    @media screen and (max-width: 900px) {
-        .services-content {
-            height: 100%;
-            flex-direction: column;
-        }
-        .services-content_categories {
-            width: 100%;
-        }
-        #categories-list {
-            padding: 1rem;
-            justify-content: center;
-        }
-        .services-content_description {
-            width: 100%;
-            box-sizing: border-box;
-            flex-direction: column;
-        }
     }
 </style>
