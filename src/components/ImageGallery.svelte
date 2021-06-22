@@ -1,14 +1,34 @@
 <script lang="ts">
-    import type { IGalleryImage } from "../types";
     import { isLarge } from "../stores/mediaQuery";
+    import type { IGalleryImage } from "../types";
+
     export let images: IGalleryImage[];
+
+    let selectedPath: string | undefined;
 </script>
 
 <article class="gallery" class:gallery--large={$isLarge}>
     {#each images as image}
-        <div class="container" class:container--large={$isLarge}>
+        <div
+            class="container"
+            class:container--selected={selectedPath === image.path}
+            on:touchend={(ev) => {
+                if (selectedPath !== image.path) {
+                    ev.stopPropagation();
+                    ev.preventDefault();
+                }
+                selectedPath = image.path;
+            }}
+            on:mouseover={() => {
+                selectedPath = image.path;
+            }}
+            on:mouseleave={() => {
+                selectedPath = undefined;
+            }}
+            class:container--large={$isLarge}
+        >
             <img src={image.src} alt={image.name} />
-            {#if image.path}
+            {#if image.path && selectedPath === image.path}
                 <div class="link">
                     <a href={image.path}>{image.name}</a>
                 </div>
@@ -23,10 +43,12 @@
         flex-direction: column;
         height: var(--slideshow-image-height-vertical);
     }
+
     .gallery--large {
         flex-direction: row;
         height: var(--slideshow-image-height-horizontal);
     }
+
     .container {
         position: relative;
         width: 100%;
@@ -44,18 +66,20 @@
         filter: grayscale(100%);
     }
 
-    .container:hover,
-    .container:active {
+    .container--selected {
         flex: 3;
         transition: 0.8s cubic-bezier(0.37, 0.05, 0.27, 0.99);
     }
-    .gallery img:hover {
+
+    .container--selected > img {
         filter: none;
         transition: 0.8s;
     }
 
     .link {
-        display: none;
+        z-index: 999;
+        display: flex;
+        align-items: flex-end;
         position: absolute;
         width: 100%;
         height: 3rem;
@@ -66,11 +90,6 @@
             rgba(0, 0, 0, 1) 0%,
             rgba(0, 0, 0, 0) 100%
         );
-    }
-    .container:active .link,
-    .container:hover .link {
-        display: flex;
-        align-items: flex-end;
     }
 
     a {
